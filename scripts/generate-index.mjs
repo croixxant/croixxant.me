@@ -17,6 +17,13 @@ function createContentsMap(dirpath) {
     .filter((data) => {
       return data.published
     })
+    .map((data) => {
+      return {
+        uuid: data.uuid,
+        title: data.title,
+        tags: data.tags,
+      }
+    })
 
   return { dirpath: dirpath, entries: entries }
 }
