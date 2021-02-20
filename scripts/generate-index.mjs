@@ -23,7 +23,7 @@ function createContentsMap(dirpath) {
 
 function main() {
   ;[articlesRoot, scrapsRoot].map(createContentsMap).map(({ dirpath, entries }) => {
-    fs.writeFileSync(`${dirpath}/map.json`, JSON.stringify(entries))
+    fs.writeFileSync(`${dirpath}/index.json`, JSON.stringify(entries))
   })
 }
 

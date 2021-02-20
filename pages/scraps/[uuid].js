@@ -9,7 +9,7 @@ const Page = (props) => {
 
 export const getStaticProps = async ({ params }) => {
   const { default: scrap } = await import(`../../contents/scraps/${params.uuid}.md`)
-  const data = matter(scrap)
+  const { content, data } = matter(scrap)
 
   if (!data) {
     return {
@@ -19,16 +19,16 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      uuid: data.data.uuid,
-      title: data.data.title,
-      content: data.content,
-      tags: data.data.tags,
+      uuid: data.uuid,
+      title: data.title,
+      content: content,
+      tags: data.tags,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const { default: scraps } = await import(`../../contents/scraps/map.json`)
+  const { default: scraps } = await import(`../../contents/scraps/index.json`)
   const paths = scraps.map(({ uuid }) => {
     return `/scraps/${uuid}`
   })

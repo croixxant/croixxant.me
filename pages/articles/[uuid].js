@@ -9,7 +9,7 @@ const Page = (props) => {
 
 export const getStaticProps = async ({ params }) => {
   const { default: article } = await import(`../../contents/articles/${params.uuid}.md`)
-  const data = matter(article)
+  const { content, data } = matter(article)
 
   if (!data) {
     return {
@@ -19,16 +19,16 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      uuid: data.data.uuid,
-      title: data.data.title,
-      content: data.content,
-      tags: data.data.tags,
+      uuid: data.uuid,
+      title: data.title,
+      content: content,
+      tags: data.tags,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const { default: articles } = await import(`../../contents/articles/map.json`)
+  const { default: articles } = await import(`../../contents/articles/index.json`)
   const paths = articles.map(({ uuid }) => {
     return `/articles/${uuid}`
   })

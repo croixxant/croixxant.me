@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-contents-map.mjs && next build",
+    "build": "node scripts/generate-index.mjs && next build",
     "start": "next start",
-    "gen:contentsmap": "node scripts/generate-contents-map.mjs"
+    "gen:index": "node scripts/generate-index.mjs"
   },
   "dependencies": {
     "@emotion/css": "^11.1.3",
