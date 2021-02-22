@@ -1,10 +1,16 @@
 import { useRouter } from 'next/router'
 import processor from '../../utils/md-processor'
+import Layout from '../../components/layout'
 
 const Page = (props) => {
   const router = useRouter()
   const { uuid } = router.query
-  return <div>Article {uuid}</div>
+  return (
+    <Layout>
+      Article {uuid}
+      <div dangerouslySetInnerHTML={{ __html: props.contents }}></div>
+    </Layout>
+  )
 }
 
 export const getStaticProps = async ({ params }) => {
