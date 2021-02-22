@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import * as matter from 'gray-matter'
 
 const Page = (props) => {
   const router = useRouter()
@@ -9,7 +8,7 @@ const Page = (props) => {
 
 export const getStaticProps = async ({ params }) => {
   const { default: scrap } = await import(`../../contents/scraps/${params.uuid}.md`)
-  const { content, data } = matter(scrap)
+  const { contents, data } = processor.processSync(scrap)
 
   if (!data) {
     return {
@@ -19,10 +18,10 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      uuid: data.uuid,
-      title: data.title,
-      content: content,
-      tags: data.tags,
+      uuid: data.frontmatter.uuid,
+      title: data.frontmatter.title,
+      contents: contents,
+      tags: data.frontmatter.tags,
     },
   }
 }
