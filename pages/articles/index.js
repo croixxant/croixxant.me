@@ -1,4 +1,9 @@
 import { useRouter } from 'next/router'
+import tw from 'twin.macro'
+import Layout from '../../components/layout'
+import Breadcrumbs from '../../components/breadcrumbs'
+import ContentsList from '../../components/contentsList'
+import Pagination from '../../components/pagination'
 import data from '../../contents/articles/index.json'
 
 const limit = 1
@@ -6,21 +11,22 @@ const limit = 1
 const Page = (props) => {
   const router = useRouter()
   const tag = router.query.tag
-  const page = router.query.page
-  const filterd = filter(data, tag)
-  const result = paginate(filterd, page)
+  const currentPage = parseInt(router.query.page) ? parseInt(router.query.page) : 1
+  const filtered = filter(data, tag)
+  const contentsLen = filtered.length
+  const result = paginate(filtered, currentPage)
+  const breadcrumbs = [{ title: 'Articles', link: '/articles' }]
 
   if (result.length === 0) {
     return <div>Result 0.</div>
   }
 
   return (
-    <div>
-      Articles {!!tag && `in ${tag}`}
-      {result.map((article) => (
-        <div key={article.uuid}>{article.title}</div>
-      ))}
-    </div>
+    <Layout>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <ContentsList contents={result} />
+      <Pagination all={contentsLen} limit={limit} current={currentPage} />
+    </Layout>
   )
 }
 
