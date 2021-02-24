@@ -6,12 +6,12 @@ import tw from 'twin.macro'
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <div tw="relative bg-white">
-      <div tw="max-w-7xl mx-auto px-4 sm:px-6">
-        <div tw="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-          <div tw="flex justify-start lg:w-0 lg:flex-1">
+    <div tw="relative bg-white border-b-2 border-gray-100">
+      <div tw="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        <div tw="flex justify-between items-center md:justify-start md:space-x-10">
+          <div tw="flex justify-start">
             <a href="/">
-              <span tw="">Croixxant.me</span>
+              <span tw="text-lg font-bold text-gray-600 hover:text-gray-900">Croixxant.me</span>
             </a>
           </div>
           <div tw="-mr-2 -my-2 md:hidden">
