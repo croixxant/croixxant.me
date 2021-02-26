@@ -6,7 +6,7 @@ import ContentsList from '../../components/contentsList'
 import Pagination from '../../components/pagination'
 import data from '../../contents/articles/index.json'
 
-const limit = 1
+const limit = 10
 
 const Page = (props) => {
   const router = useRouter()
