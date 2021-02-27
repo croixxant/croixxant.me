@@ -55,7 +55,7 @@ const Page = (props) => {
             <h1>
               <div tw="text-center">
                 {props.tags.map((t, idx) => {
-                  return <Tag key={idx} href="#" name={t} />
+                  return <Tag key={idx} href={`/articles?tag=${t}`} name={t} />
                 })}
               </div>
               <span tw="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">

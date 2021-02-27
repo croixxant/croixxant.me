@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { css } from '@emotion/css'
 import tw from 'twin.macro'
+import Link from 'next/link'
 import GitHubSVG from './svg/github'
 import TwitterSVG from './svg/twitter'
 
@@ -12,9 +13,11 @@ const Header = () => {
       <div tw="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         <div tw="flex justify-between items-center md:justify-start md:space-x-10">
           <div tw="flex justify-start">
-            <a href="/">
-              <span tw="text-lg font-bold text-gray-600 hover:text-gray-900">Croixxant.me</span>
-            </a>
+            <Link href="/" passHref>
+              <a>
+                <span tw="text-lg font-bold text-gray-600 hover:text-gray-900">Croixxant.me</span>
+              </a>
+            </Link>
           </div>
           <div tw="-mr-2 -my-2 md:hidden">
             <button
@@ -30,12 +33,12 @@ const Header = () => {
             </button>
           </div>
           <nav tw="hidden md:flex space-x-10">
-            <a href="#" tw="text-base font-medium text-gray-500 hover:text-gray-900">
-              Articles
-            </a>
-            <a href="#" tw="text-base font-medium text-gray-500 hover:text-gray-900">
-              Scraps
-            </a>
+            <Link href="/articles" passHref>
+              <a tw="text-base font-medium text-gray-500 hover:text-gray-900">Articles</a>
+            </Link>
+            <Link href="/scraps" passHref>
+              <a tw="text-base font-medium text-gray-500 hover:text-gray-900">Scraps</a>
+            </Link>
           </nav>
           <div tw="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
@@ -74,9 +77,11 @@ const Header = () => {
             <div tw="pt-5 pb-6 px-5">
               <div tw="flex items-center justify-between">
                 <div tw="flex justify-start lg:w-0 lg:flex-1">
-                  <a href="/">
-                    <span tw="text-lg font-bold text-gray-600 hover:text-gray-900">Croixxant.me</span>
-                  </a>
+                  <Link href="/" passHref>
+                    <a>
+                      <span tw="text-lg font-bold text-gray-600 hover:text-gray-900">Croixxant.me</span>
+                    </a>
+                  </Link>
                 </div>
                 <div tw="-mr-2">
                   <button
@@ -100,27 +105,31 @@ const Header = () => {
               </div>
               <div tw="mt-6">
                 <div tw="grid gap-2 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
-                  <a href="#" tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50">
-                    Articles
-                  </a>
-                  <a href="#" tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50">
-                    Scraps
-                  </a>
+                  <Link href="/articles" passHref>
+                    <a tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50">Articles</a>
+                  </Link>
+                  <Link href="/scraps" passHref>
+                    <a tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50">Scraps</a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div tw="py-4 px-5">
               <div tw="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
-                  href="#"
                   tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-black bg-gray-100 hover:bg-gray-200"
+                  href="https://github.com/croixxant"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <GitHubSVG height="20" width="20" />
                   <span tw="ml-1">GitHub</span>
                 </a>
                 <a
-                  href="#"
                   tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white background-color[#1DA1F2] hover:background-color[#1a90d9]"
+                  href="https://twitter.com/croixxxant"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <TwitterSVG height="20" width="20" />
                   <span tw="ml-2">Twitter</span>

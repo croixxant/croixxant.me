@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import tw from 'twin.macro'
+import Link from 'next/link'
 import Tag from './tag'
 
-const ContentsList = ({ contents }) => {
+const ContentsList = ({ contents, context }) => {
   return (
     <section tw="text-gray-600 overflow-hidden">
       <div tw="container px-5 py-8 md:py-12 mx-auto">
@@ -16,12 +17,12 @@ const ContentsList = ({ contents }) => {
                 <div tw="md:flex-grow">
                   <div tw="mb-2">
                     {c.tags.map((t, tidx) => {
-                      return <Tag key={tidx} href="#" name={t} />
+                      return <Tag key={tidx} href={`/articles?tag=${t}`} name={t} />
                     })}
                   </div>
-                  <a href="#" tw="text-2xl font-medium text-gray-900">
-                    {c.title}
-                  </a>
+                  <Link href={`/${context}/${c.uuid}`} passHref>
+                    <a tw="text-2xl font-medium text-gray-900">{c.title}</a>
+                  </Link>
                 </div>
               </div>
             )
