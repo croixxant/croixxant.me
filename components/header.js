@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { css } from '@emotion/css'
 import tw from 'twin.macro'
+import GitHubSVG from './svg/github'
+import TwitterSVG from './svg/twitter'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -37,16 +39,22 @@ const Header = () => {
           </nav>
           <div tw="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
-              href="#"
-              tw="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+              tw="ml-6 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-black bg-gray-100 hover:bg-gray-200"
+              href="https://github.com/croixxant"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Twitter
+              <GitHubSVG height="20" width="20" />
+              <span tw="ml-1">GitHub</span>
             </a>
             <a
-              href="#"
-              tw="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+              tw="ml-6 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white background-color[#1DA1F2] hover:background-color[#1a90d9]"
+              href="https://twitter.com/croixxxant"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Github
+              <TwitterSVG height="20" width="20" />
+              <span tw="ml-2">Twitter</span>
             </a>
           </div>
         </div>
