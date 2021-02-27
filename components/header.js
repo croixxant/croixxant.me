@@ -75,7 +75,7 @@ const Header = () => {
               <div tw="flex items-center justify-between">
                 <div tw="flex justify-start lg:w-0 lg:flex-1">
                   <a href="/">
-                    <span tw="">Croixxant.me</span>
+                    <span tw="text-lg font-bold text-gray-600 hover:text-gray-900">Croixxant.me</span>
                   </a>
                 </div>
                 <div tw="-mr-2">
@@ -98,28 +98,32 @@ const Header = () => {
                   </button>
                 </div>
               </div>
-            </div>
-            <div tw="py-4 px-5 space-y-6">
-              <div>
-                <a href="#" tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 hover:text-gray-700">
-                  Articles
-                </a>
-                <a href="#" tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 hover:text-gray-700">
-                  Scraps
-                </a>
+              <div tw="mt-6">
+                <div tw="grid gap-2 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
+                  <a href="#" tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50">
+                    Articles
+                  </a>
+                  <a href="#" tw="w-full flex px-4 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50">
+                    Scraps
+                  </a>
+                </div>
               </div>
+            </div>
+            <div tw="py-4 px-5">
               <div tw="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   href="#"
-                  tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-black bg-gray-100 hover:bg-gray-200"
                 >
-                  Twitter
+                  <GitHubSVG height="20" width="20" />
+                  <span tw="ml-1">GitHub</span>
                 </a>
                 <a
                   href="#"
-                  tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white background-color[#1DA1F2] hover:background-color[#1a90d9]"
                 >
-                  Github
+                  <TwitterSVG height="20" width="20" />
+                  <span tw="ml-2">Twitter</span>
                 </a>
               </div>
             </div>
