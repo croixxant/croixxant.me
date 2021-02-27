@@ -3,8 +3,7 @@ import { Transition } from '@headlessui/react'
 import { css } from '@emotion/css'
 import tw from 'twin.macro'
 import Link from 'next/link'
-import GitHubSVG from './svg/github'
-import TwitterSVG from './svg/twitter'
+import { GitHub, Twitter, Menu, X } from './svg'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,9 +26,7 @@ const Header = () => {
               onClick={() => setIsOpen(!isOpen)}
             >
               <span tw="sr-only">Open menu</span>
-              <svg tw="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <Menu />
             </button>
           </div>
           <nav tw="hidden md:flex space-x-10">
@@ -47,7 +44,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GitHubSVG height="20" width="20" />
+              <GitHub height="20" width="20" />
               <span tw="ml-1">GitHub</span>
             </a>
             <a
@@ -56,7 +53,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <TwitterSVG height="20" width="20" />
+              <Twitter height="20" width="20" />
               <span tw="ml-2">Twitter</span>
             </a>
           </div>
@@ -90,16 +87,7 @@ const Header = () => {
                     onClick={() => setIsOpen(!isOpen)}
                   >
                     <span tw="sr-only">Close menu</span>
-                    <svg
-                      tw="h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <X />
                   </button>
                 </div>
               </div>
@@ -122,7 +110,7 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <GitHubSVG height="20" width="20" />
+                  <GitHub height="20" width="20" />
                   <span tw="ml-1">GitHub</span>
                 </a>
                 <a
@@ -131,7 +119,7 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <TwitterSVG height="20" width="20" />
+                  <Twitter height="20" width="20" />
                   <span tw="ml-2">Twitter</span>
                 </a>
               </div>
