@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import tw from 'twin.macro'
+import Tag from './tag'
 
 const ContentsList = ({ contents }) => {
   return (
@@ -15,15 +16,7 @@ const ContentsList = ({ contents }) => {
                 <div tw="md:flex-grow">
                   <div tw="mb-2">
                     {c.tags.map((t, tidx) => {
-                      return (
-                        <a
-                          key="tidx"
-                          href="#"
-                          tw="mr-3 last:mr-0 first:ml-0 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800"
-                        >
-                          {t}
-                        </a>
-                      )
+                      return <Tag key={tidx} href="#" name={t} />
                     })}
                   </div>
                   <a href="#" tw="text-2xl font-medium text-gray-900">
