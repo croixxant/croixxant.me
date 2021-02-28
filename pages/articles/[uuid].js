@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router'
 import processor from '../../utils/md-processor'
 import tw from 'twin.macro'
+import { format } from '../../utils/date'
 import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
+import { Clock } from '../../components/svg'
 import Tag from '../../components/tag'
 
 const Page = (props) => {
@@ -58,9 +60,15 @@ const Page = (props) => {
                   return <Tag key={idx} href={`/articles?tag=${t}`} name={t} />
                 })}
               </div>
-              <span tw="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              <span tw="mt-3 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 {props.title}
               </span>
+              {!!props.createdAt && (
+                <div tw="mt-3 flex items-center justify-end text-gray-400 text-base">
+                  <Clock />
+                  <span tw="ml-1">{format(new Date(props.createdAt))}</span>
+                </div>
+              )}
             </h1>
             {!!props.description && <p tw="mt-8 text-xl text-gray-500 leading-8">{props.description}</p>}
           </div>
@@ -87,6 +95,7 @@ export const getStaticProps = async ({ params }) => {
       title: data.frontmatter.title,
       contents: contents,
       tags: data.frontmatter.tags,
+      createdAt: data.frontmatter.created_at || null,
     },
   }
 }

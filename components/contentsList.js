@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import tw from 'twin.macro'
+import { format } from '../utils/date'
 import Link from 'next/link'
 import Tag from './tag'
 
@@ -12,7 +13,7 @@ const ContentsList = ({ contents, context }) => {
             return (
               <div key={cidx} tw="py-4 md:py-6 flex flex-wrap md:flex-nowrap">
                 <div tw="w-full md:w-56 md:mb-0 mb-2 flex-shrink-0 flex">
-                  <span tw="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
+                  <span tw="mt-1 text-gray-500 text-sm">{!!c.createdAt && format(new Date(c.createdAt))}</span>
                 </div>
                 <div tw="md:flex-grow">
                   <div tw="mb-2">

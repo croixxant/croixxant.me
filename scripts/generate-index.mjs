@@ -22,7 +22,11 @@ function createContentsMap(dirpath) {
         uuid: data.uuid,
         title: data.title,
         tags: data.tags,
+        createdAt: data.created_at,
       }
+    })
+    .sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt)
     })
 
   return { dirpath: dirpath, entries: entries }
