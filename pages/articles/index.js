@@ -7,7 +7,7 @@ import Pagination from '../../components/pagination'
 import data from '../../contents/articles/index.json'
 import Error from 'next/error'
 
-const limit = 1
+const limit = 10
 
 const Page = (props) => {
   const router = useRouter()

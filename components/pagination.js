@@ -45,7 +45,7 @@ const Pagination = ({ all, limit, current, router }) => {
   const pageNums = genPageNums(current, maxNumOfPages)
 
   return (
-    <div tw="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+    <div tw="bg-white flex items-center justify-between max-w-screen-xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
       <div tw="flex-1 flex justify-between sm:hidden">
         <Link href={genURL(router, current - 1)} passHref>
           <a

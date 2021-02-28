@@ -6,8 +6,8 @@ import Tag from './tag'
 
 const ContentsList = ({ contents, context }) => {
   return (
-    <section tw="text-gray-600 overflow-hidden">
-      <div tw="container px-5 py-8 md:py-12 mx-auto">
+    <section tw="text-gray-600 overflow-hidden max-w-screen-xl mx-auto">
+      <div tw="w-full px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div tw="-my-8 divide-y-2 divide-gray-100">
           {contents.map((c, cidx) => {
             return (

@@ -21,7 +21,7 @@ const Header = () => {
           <div tw="-mr-2 -my-2 md:hidden">
             <button
               type="button"
-              tw="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              tw="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -69,7 +69,7 @@ const Header = () => {
         leaveFrom={css(tw`opacity-100 scale-100`)}
         leaveTo={css(tw`opacity-0 scale-95`)}
       >
-        <div tw="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+        <div tw="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
           <div tw="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div tw="pt-5 pb-6 px-5">
               <div tw="flex items-center justify-between">
@@ -83,7 +83,7 @@ const Header = () => {
                 <div tw="-mr-2">
                   <button
                     type="button"
-                    tw="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    tw="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                     onClick={() => setIsOpen(!isOpen)}
                   >
                     <span tw="sr-only">Close menu</span>
