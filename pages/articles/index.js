@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/breadcrumbs'
 import ContentsList from '../../components/contentsList'
 import Pagination from '../../components/pagination'
 import data from '../../contents/articles/index.json'
+import Error from 'next/error'
 
 const limit = 1
 
@@ -18,7 +19,7 @@ const Page = (props) => {
   const breadcrumbs = [{ title: 'Articles', link: '/articles' }]
 
   if (result.length === 0) {
-    return <div>Result 0.</div>
+    return <Error statusCode={404} />
   }
 
   return (
