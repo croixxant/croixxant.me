@@ -16,11 +16,13 @@ const ContentsList = ({ contents, context }) => {
                   <span tw="mt-1 text-gray-500 text-sm">{!!c.createdAt && format(new Date(c.createdAt))}</span>
                 </div>
                 <div tw="md:flex-grow">
-                  <div tw="mb-2">
-                    {c.tags.map((t, tidx) => {
-                      return <Tag key={tidx} href={`/${context}?tag=${t}`} name={t} />
-                    })}
-                  </div>
+                  {c.tags.length !== 0 && (
+                    <div tw="mb-2">
+                      {c.tags.map((t, tidx) => {
+                        return <Tag key={tidx} href={`/${context}?tag=${t}`} name={t} />
+                      })}
+                    </div>
+                  )}
                   <Link href={`/${context}/${c.uuid}`} passHref>
                     <a tw="text-2xl font-medium text-gray-900">{c.title}</a>
                   </Link>

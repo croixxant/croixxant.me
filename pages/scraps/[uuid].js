@@ -55,14 +55,14 @@ const Page = (props) => {
         <div tw="relative px-4 sm:px-6 lg:px-8">
           <div tw="text-lg max-w-prose mx-auto">
             <h1>
-              <div tw="text-center">
-                {props.tags.map((t, idx) => {
-                  return <Tag key={idx} href={`/scraps?tag=${t}`} name={t} />
-                })}
-              </div>
-              <span tw="mt-3 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                {props.title}
-              </span>
+              {props.tags.length !== 0 && (
+                <div tw="text-center mb-3">
+                  {props.tags.map((t, idx) => {
+                    return <Tag key={idx} href={`/scraps?tag=${t}`} name={t} />
+                  })}
+                </div>
+              )}
+              <span tw="block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{props.title}</span>
               {!!props.createdAt && (
                 <div tw="mt-3 flex items-center justify-end text-gray-400 text-base">
                   <Clock />
