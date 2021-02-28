@@ -18,7 +18,7 @@ const ContentsList = ({ contents, context }) => {
                 <div tw="md:flex-grow">
                   <div tw="mb-2">
                     {c.tags.map((t, tidx) => {
-                      return <Tag key={tidx} href={`/articles?tag=${t}`} name={t} />
+                      return <Tag key={tidx} href={`/${context}?tag=${t}`} name={t} />
                     })}
                   </div>
                   <Link href={`/${context}/${c.uuid}`} passHref>
