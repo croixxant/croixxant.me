@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-index.mjs && next build",
+    "build": "node scripts/generate-index.mjs && next build && next export",
     "start": "next start",
     "gen:index": "node scripts/generate-index.mjs"
   },
