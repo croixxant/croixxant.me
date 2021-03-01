@@ -72,7 +72,7 @@ const Page = (props) => {
             </h1>
             {!!props.description && <p tw="mt-8 text-xl text-gray-500 leading-8">{props.description}</p>}
           </div>
-          <div tw="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto" dangerouslySetInnerHTML={{ __html: props.contents }}></div>
+          <div tw="mt-6 prose prose-indigo lg:prose-lg text-gray-500 mx-auto" dangerouslySetInnerHTML={{ __html: props.contents }}></div>
         </div>
       </div>
     </Layout>
