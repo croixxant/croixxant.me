@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
 import tw from 'twin.macro'
 import Link from 'next/link'
 import { Home, Right } from './svg'
 
-const Breadcrumbs = ({ breadcrumbs }) => {
+type Props = {
+  breadcrumbs: Breadcrumb[]
+}
+
+type Breadcrumb = {
+  title: string
+  link: string
+}
+
+const Breadcrumbs = ({ breadcrumbs }: Props) => {
   return (
     <nav tw="bg-white border-b border-gray-200 flex" aria-label="Breadcrumb">
       <ol tw="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8 overflow-scroll">

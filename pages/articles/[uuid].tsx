@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import processor from '../../utils/md-processor'
 import tw from 'twin.macro'
 import { format } from '../../utils/date'
@@ -6,13 +5,22 @@ import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
 import { Clock } from '../../components/svg'
 import Tag from '../../components/tag'
+import type { File, Summary } from '../../types/contents'
+import type { GetStaticPropsContext } from 'next'
 
-const Page = (props) => {
-  const router = useRouter()
-  const { uuid } = router.query
+type Props = {
+  uuid: string
+  title: string
+  contents: string
+  tags: string[]
+  createdAt: string
+  description: string
+}
+
+const Page = ({ uuid, title, contents, tags, createdAt, description }: Props) => {
   const breadcrumbs = [
     { title: 'Articles', link: '/articles' },
-    { title: props.title, link: `/articles/${props.uuid}` },
+    { title: title, link: `/articles/${uuid}` },
   ]
   return (
     <Layout>
@@ -55,35 +63,42 @@ const Page = (props) => {
         <div tw="relative px-4 sm:px-6 lg:px-8">
           <div tw="text-lg max-w-prose mx-auto">
             <h1>
-              {props.tags.length !== 0 && (
+              {tags.length !== 0 && (
                 <div tw="text-center mb-3">
-                  {props.tags.map((t, idx) => {
+                  {tags.map((t, idx) => {
                     return <Tag key={idx} href={`/articles?tag=${t}`} name={t} />
                   })}
                 </div>
               )}
-              <span tw="block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{props.title}</span>
-              {!!props.createdAt && (
+              <span tw="block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{title}</span>
+              {createdAt !== '' && (
                 <div tw="mt-3 flex items-center justify-end text-gray-400 text-base">
                   <Clock />
-                  <span tw="ml-1">{format(new Date(props.createdAt))}</span>
+                  <span tw="ml-1">{format(new Date(createdAt))}</span>
                 </div>
               )}
             </h1>
-            {!!props.description && <p tw="mt-8 text-xl text-gray-500 leading-8">{props.description}</p>}
+            {!!description && <p tw="mt-8 text-xl text-gray-500 leading-8">{description}</p>}
           </div>
-          <div tw="mt-6 prose prose-indigo lg:prose-lg text-gray-500 mx-auto" dangerouslySetInnerHTML={{ __html: props.contents }}></div>
+          <div tw="mt-6 prose prose-indigo lg:prose-lg text-gray-500 mx-auto" dangerouslySetInnerHTML={{ __html: contents }}></div>
         </div>
       </div>
     </Layout>
   )
 }
 
-export const getStaticProps = async ({ params }) => {
-  const { default: article } = await import(`../../contents/articles/${params.uuid}.md`)
-  const { contents, data } = processor.processSync(article)
+type Params = {
+  uuid: string
+}
 
-  if (!data) {
+export const getStaticProps = async ({ params: { uuid } }: GetStaticPropsContext<Params>) => {
+  const { default: article } = await import(`../../contents/articles/${uuid}.md`)
+  const {
+    contents,
+    data: { frontmatter },
+  } = processor.processSync(article) as File
+
+  if (!frontmatter || !contents) {
     return {
       notFound: true,
     }
@@ -91,18 +106,19 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      uuid: data.frontmatter.uuid,
-      title: data.frontmatter.title,
+      uuid: frontmatter.uuid,
+      title: frontmatter.title,
       contents: contents,
-      tags: data.frontmatter.tags,
-      createdAt: data.frontmatter.created_at || null,
+      tags: frontmatter.tags || [],
+      createdAt: frontmatter.createdAt || '',
+      description: frontmatter.description || '',
     },
   }
 }
 
 export async function getStaticPaths() {
   const { default: articles } = await import(`../../contents/articles/index.json`)
-  const paths = articles.map(({ uuid }) => {
+  const paths = articles.map(({ uuid }: Summary) => {
     return `/articles/${uuid}`
   })
   return {

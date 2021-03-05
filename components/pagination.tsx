@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
 import Link from 'next/link'
-import { withRouter } from 'next/router'
+import { withRouter, NextRouter } from 'next/router'
 import tw, { css } from 'twin.macro'
 import { ChevronLeft, ChevronRight } from './svg'
 
@@ -13,7 +12,7 @@ const currentStyle = css`
   ${tw`bg-gray-100 pointer-events-none`}
 `
 
-const genPageNums = (current, maxNumOfPages) => {
+const genPageNums = (current: number, maxNumOfPages: number) => {
   const all = Array(maxNumOfPages).fill(0)
   if (maxNumOfPages <= numOfDisplayableButtons) {
     return all.map((_, i) => i + 1)
@@ -33,12 +32,19 @@ const genPageNums = (current, maxNumOfPages) => {
     .sort()
 }
 
-const genURL = (router, pageNum) => {
+const genURL = (router: NextRouter, pageNum: number) => {
   const query = { ...router.query, page: pageNum }
   return { pathname: router.pathname, query: query }
 }
 
-const Pagination = ({ all, limit, current, router }) => {
+type Props = {
+  all: number
+  limit: number
+  current: number
+  router: NextRouter
+}
+
+const Pagination = ({ all, limit, current, router }: Props) => {
   const to = all < limit * current ? all : limit * current
   const from = limit * current - limit + 1
   const maxNumOfPages = Math.ceil(all / limit)
