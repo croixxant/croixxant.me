@@ -6,13 +6,17 @@ import ContentsList from '../../components/contentsList'
 import Pagination from '../../components/pagination'
 import data from '../../contents/articles/index.json'
 import Error from 'next/error'
+import type { Summary } from '../../types/contents'
 
 const limit = 10
 
-const Page = (props) => {
-  const router = useRouter()
-  const tag = router.query.tag
-  const currentPage = parseInt(router.query.page) ? parseInt(router.query.page) : 1
+type Props = {}
+
+const Page = (_: Props) => {
+  const q = useRouter().query
+  const tag = typeof q.tag === 'string' ? q.tag : ''
+  const currentPageStr = typeof q.page === 'string' ? q.page : '1'
+  const currentPage = parseInt(currentPageStr) || 1
   const filtered = filter(data, tag)
   const contentsLen = filtered.length
   const result = paginate(filtered, currentPage)
@@ -31,8 +35,8 @@ const Page = (props) => {
   )
 }
 
-const filter = (data, tagName) => {
-  if (!tagName) {
+const filter = (data: Summary[], tagName: string) => {
+  if (tagName === '') {
     return data
   }
   return data.filter((article) => {
@@ -43,10 +47,7 @@ const filter = (data, tagName) => {
   })
 }
 
-const paginate = (data, page) => {
-  if (!page) {
-    return data.slice(0, limit)
-  }
+const paginate = (data: Summary[], page: number) => {
   return data.slice(page * limit - limit, page * limit)
 }
 

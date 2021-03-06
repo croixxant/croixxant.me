@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { css } from '@emotion/css'
 import tw from 'twin.macro'
@@ -44,7 +44,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GitHub height="20" width="20" />
+              <GitHub height={20} width={20} />
               <span tw="ml-1">GitHub</span>
             </a>
             <a
@@ -53,7 +53,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Twitter height="20" width="20" />
+              <Twitter height={20} width={20} />
               <span tw="ml-2">Twitter</span>
             </a>
           </div>
@@ -110,7 +110,7 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <GitHub height="20" width="20" />
+                  <GitHub height={20} width={20} />
                   <span tw="ml-1">GitHub</span>
                 </a>
                 <a
@@ -119,7 +119,7 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Twitter height="20" width="20" />
+                  <Twitter height={20} width={20} />
                   <span tw="ml-2">Twitter</span>
                 </a>
               </div>
