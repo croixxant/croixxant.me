@@ -90,8 +90,14 @@ type Params = {
   uuid: string
 }
 
-export const getStaticProps = async ({ params: { uuid } }: GetStaticPropsContext<Params>) => {
-  const { default: article } = await import(`../../contents/scraps/${uuid}.md`)
+export const getStaticProps = async ({ params }: GetStaticPropsContext<Params>) => {
+  if (!params || !params.uuid) {
+    return {
+      notFound: true,
+    }
+  }
+
+  const { default: article } = await import(`../../contents/scraps/${params.uuid}.md`)
   const {
     contents,
     data: { frontmatter },

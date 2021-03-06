@@ -10,7 +10,9 @@ import type { Summary } from '../../types/contents'
 
 const limit = 10
 
-const Page = (_) => {
+type Props = {}
+
+const Page = (_: Props) => {
   const q = useRouter().query
   const tag = typeof q.tag === 'string' ? q.tag : ''
   const currentPageStr = typeof q.page === 'string' ? q.page : '1'
