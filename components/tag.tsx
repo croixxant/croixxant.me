@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import tw from 'twin.macro'
 import Link from 'next/link'
 

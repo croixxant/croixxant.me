@@ -1,4 +1,3 @@
-import React from 'react'
 import tw from 'twin.macro'
 import { format } from '../utils/date'
 import Link from 'next/link'
