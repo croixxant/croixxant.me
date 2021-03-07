@@ -10,7 +10,7 @@ const H = (props: Props) => {
   const defaultHostname = process.env.ASSETS_HOSTNAME ?? 'https://croixxant.me'
   const title = !!props.title ? `${props.title} - ${defaultTitle}` : defaultTitle
   const path = useRouter().asPath
-  const url = path === '/' ? defaultHostname : `${defaultHostname}/${path}`
+  const url = `${defaultHostname}${path}`
   return (
     <Head>
       <title>{title}</title>
