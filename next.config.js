@@ -12,4 +12,7 @@ module.exports = {
 
     return config
   },
+  env: {
+    ASSETS_HOSTNAME: process.env.ASSETS_HOSTNAME,
+  },
 }

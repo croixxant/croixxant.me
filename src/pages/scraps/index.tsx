@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import tw from 'twin.macro'
+import Head from '../../components/head'
 import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
 import ContentsList from '../../components/contentsList'
@@ -27,11 +28,14 @@ const Page = (_: Props) => {
   }
 
   return (
-    <Layout>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <ContentsList contents={result} context="scraps" />
-      <Pagination all={contentsLen} limit={limit} current={currentPage} />
-    </Layout>
+    <>
+      <Head title="Scraps" />
+      <Layout>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <ContentsList contents={result} context="scraps" />
+        <Pagination all={contentsLen} limit={limit} current={currentPage} />
+      </Layout>
+    </>
   )
 }
 

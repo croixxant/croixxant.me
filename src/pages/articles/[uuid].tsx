@@ -1,5 +1,6 @@
 import processor from '../../utils/md-processor'
 import tw from 'twin.macro'
+import Head from '../../components/head'
 import Layout from '../../components/layout'
 import ContentsDetail from '../../components/contentsDetail'
 import Breadcrumbs from '../../components/breadcrumbs'
@@ -21,10 +22,13 @@ const Page = ({ uuid, title, contents, tags, createdAt, description }: Props) =>
     { title: title, link: `/articles/${uuid}` },
   ]
   return (
-    <Layout>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <ContentsDetail context="articles" title={title} contents={contents} tags={tags} createdAt={createdAt} description={description} />
-    </Layout>
+    <>
+      <Head title={title} />
+      <Layout>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <ContentsDetail context="articles" title={title} contents={contents} tags={tags} createdAt={createdAt} description={description} />
+      </Layout>
+    </>
   )
 }
 
