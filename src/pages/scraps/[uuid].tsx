@@ -38,7 +38,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<Params>) 
     }
   }
 
-  const { default: article } = await import(`../../contents/scraps/${params.uuid}.md`)
+  const { default: article } = await import(`../../../contents/scraps/${params.uuid}.md`)
   const {
     contents,
     data: { frontmatter },
@@ -63,7 +63,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<Params>) 
 }
 
 export async function getStaticPaths() {
-  const { default: scraps } = await import(`../../contents/scraps/index.json`)
+  const { default: scraps } = await import(`../../../contents/scraps/index.json`)
   const paths = scraps.map(({ uuid }: Summary) => {
     return `/scraps/${uuid}`
   })

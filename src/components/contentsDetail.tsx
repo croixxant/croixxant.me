@@ -1,6 +1,6 @@
 import tw from 'twin.macro'
 import { format } from '../utils/date'
-import { Clock } from '../components/svg'
+import { Clock } from './svg'
 import Tag from './tag'
 
 type Props = {
