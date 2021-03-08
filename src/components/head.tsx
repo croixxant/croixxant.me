@@ -14,16 +14,20 @@ const H = (props: Props) => {
   return (
     <Head>
       <title>{title}</title>
-      <link rel="icon" href={`${defaultHostname}/icon.png`} />
+      <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+      <link rel="icon" type="image/png" href={`${defaultHostname}/icons/16x16.png`} sizes="16x16" />
+      <link rel="icon" type="image/png" href={`${defaultHostname}/icons/32x32.png`} sizes="32x32" />
       <meta name="apple-mobile-web-app-title" content={defaultTitle} />
-      <link rel="apple-touch-icon" href={`${defaultHostname}/icon.png`} />
+      <link rel="apple-touch-icon" type="image/png" href={`${defaultHostname}/icons/180x180.png`} sizes="180x180" />
       <meta property="og:title" content={title} />
       <meta property="og:type" content={path === '/' ? 'website' : 'article'} />
       <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={`${defaultHostname}/icon.png`} />
+      <meta property="og:image" content={`${defaultHostname}/icons/512x512.png`} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@croixxxant" />
+      <link rel="manifest" href="/manifest.json" />
+      <meta name="theme-color" content="#FA742B" />
     </Head>
   )
 }

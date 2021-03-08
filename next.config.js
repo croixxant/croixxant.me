@@ -1,4 +1,6 @@
-module.exports = {
+const withPWA = require('next-pwa')
+
+module.exports = withPWA({
   webpack: (config, { isServer }) => {
     config.module.rules.push({
       test: /\.md$/,
@@ -15,4 +17,7 @@ module.exports = {
   env: {
     ASSETS_HOSTNAME: process.env.ASSETS_HOSTNAME,
   },
-}
+  pwa: {
+    dest: 'public',
+  },
+})
