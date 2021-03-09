@@ -17,6 +17,9 @@ const H = (props: Props) => {
       <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
       <link rel="icon" type="image/png" href={`${defaultHostname}/icons/16x16.png`} sizes="16x16" />
       <link rel="icon" type="image/png" href={`${defaultHostname}/icons/32x32.png`} sizes="32x32" />
+      <meta name="theme-color" content="#FA742B" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content={defaultTitle} />
       <link rel="apple-touch-icon" type="image/png" href={`${defaultHostname}/icons/180x180.png`} sizes="180x180" />
       <meta property="og:title" content={title} />
@@ -27,7 +30,6 @@ const H = (props: Props) => {
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@croixxxant" />
       <link rel="manifest" href="/manifest.json" />
-      <meta name="theme-color" content="#FA742B" />
     </Head>
   )
 }
