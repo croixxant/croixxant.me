@@ -6,10 +6,10 @@ import { ChevronLeft, ChevronRight } from './svg'
 const numOfDisplayableButtons = 7
 
 const disableStyle = css`
-  ${tw`bg-gray-300 dark:bg-gray-500 dark:text-black pointer-events-none`}
+  ${tw`text-gray-300 dark:text-gray-500 pointer-events-none`}
 `
 const currentStyle = css`
-  ${tw`text-orange dark:text-orange font-bold pointer-events-none`}
+  ${tw`font-bold pointer-events-none`}
 `
 
 const genPageNums = (current: number, maxNumOfPages: number) => {

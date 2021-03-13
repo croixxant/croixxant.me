@@ -25,8 +25,7 @@ const Header = () => {
               </a>
             </Link>
           </div>
-          <div tw="flex gap-x-2 -mr-2 -my-2 md:hidden">
-            <ThemeChanger />
+          <div tw="-mr-2 -my-2 md:hidden">
             <button
               type="button"
               tw="rounded-md p-2 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange
@@ -115,7 +114,8 @@ const Header = () => {
                     </a>
                   </Link>
                 </div>
-                <div tw="-mr-2">
+                <div tw="-mr-2 flex space-x-2">
+                  <ThemeChanger />
                   <button
                     type="button"
                     tw="rounded-md p-2 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange
