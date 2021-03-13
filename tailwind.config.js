@@ -12,6 +12,9 @@ module.exports = {
             'h2,h3,h4': {
               color: theme('colors.white'),
             },
+            a: {
+              color: theme('colors.green.500'),
+            },
           },
         },
         DEFAULT: {

@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from './svg'
 const numOfDisplayableButtons = 7
 
 const disableStyle = css`
-  ${tw`text-gray-300 dark:text-gray-500 pointer-events-none`}
+  ${tw`text-gray-300 dark:text-gray-400 pointer-events-none`}
 `
 const currentStyle = css`
   ${tw`font-bold pointer-events-none`}
