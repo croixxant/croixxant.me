@@ -77,7 +77,10 @@ const ContentsDetail = ({ context, title, contents, tags, createdAt, description
           </h1>
           {!!description && <p tw="text-gray-500 dark:text-white mt-8 text-xl leading-8">{description}</p>}
         </div>
-        <div tw="mt-6 prose prose-indigo dark:prose-dark lg:prose-lg mx-auto" dangerouslySetInnerHTML={{ __html: contents }}></div>
+        <div
+          tw="mt-6 text-gray-500 prose prose-indigo dark:prose-dark lg:prose-lg mx-auto"
+          dangerouslySetInnerHTML={{ __html: contents }}
+        ></div>
       </div>
     </div>
   )

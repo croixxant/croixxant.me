@@ -19,19 +19,19 @@ module.exports = {
         },
         DEFAULT: {
           css: {
-            'ul.contains-task-list > li::before': {
+            'ul[class="contains-task-list"] > li::before': {
               content: 'none',
             },
-            'ul.contains-task-list > li': {
+            'ul[class="contains-task-list"] > li': {
               paddingLeft: 0,
             },
-            '> ul.contains-task-list > li > *:first-child': {
+            '> ul[class="contains-task-list"] > li > *:first-of-type': {
               marginTop: 0,
             },
-            '> ul.contains-task-list > li > *:last-child': {
+            '> ul[class="contains-task-list"] > li > *:last-of-type': {
               marginBottom: 0,
             },
-            '> ul.contains-task-list > li > input[type="checkbox"]': {
+            '> ul[class="contains-task-list"] > li > input[type="checkbox"]': {
               marginRight: '0.5rem',
             },
             img: {
