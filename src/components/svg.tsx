@@ -11,6 +11,8 @@ import GitHubSVG from '../assets/svg/github.svg'
 import TwitterSVG from '../assets/svg/twitter.svg'
 import ClockSVG from '../assets/svg/clock.svg'
 import RightSVG from '../assets/svg/right.svg'
+import MoonSVG from '../assets/svg/moon.svg'
+import SunSVG from '../assets/svg/sun.svg'
 
 export const Menu = () => {
   return <MenuSVG tw="h-6 w-6" />
@@ -33,7 +35,7 @@ export const Home = () => {
 }
 
 export const Right = () => {
-  return <RightSVG tw="flex-shrink-0 w-6 h-full text-gray-200" />
+  return <RightSVG tw="flex-shrink-0 w-6 h-full text-gray-200 dark:text-gray-600" />
 }
 
 export const ChevronRight = () => {
@@ -60,4 +62,12 @@ export const Twitter = ({ height, width, fill }: Props) => {
 
 export const Clock = () => {
   return <ClockSVG tw="h-5 w-5" />
+}
+
+export const Moon = () => {
+  return <MoonSVG tw="h-6 w-6" />
+}
+
+export const Sun = () => {
+  return <SunSVG tw="h-6 w-6" />
 }

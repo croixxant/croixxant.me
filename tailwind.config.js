@@ -1,7 +1,19 @@
 module.exports = {
+  darkMode: 'class',
   theme: {
     extend: {
-      typography: {
+      colors: {
+        orange: '#FA742B',
+      },
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: theme('colors.white'),
+            'h2,h3,h4': {
+              color: theme('colors.white'),
+            },
+          },
+        },
         DEFAULT: {
           css: {
             'ul.contains-task-list > li::before': {
@@ -25,8 +37,11 @@ module.exports = {
             },
           },
         },
-      },
+      }),
     },
+  },
+  variants: {
+    typography: ['dark'],
   },
   plugins: [require('@tailwindcss/typography')],
 }

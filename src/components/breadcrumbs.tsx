@@ -13,12 +13,12 @@ type Breadcrumb = {
 
 const Breadcrumbs = ({ breadcrumbs }: Props) => {
   return (
-    <nav tw="bg-white border-b border-gray-200 flex" aria-label="Breadcrumb">
+    <nav tw="flex border-b-2 border-gray-200 dark:border-gray-600" aria-label="Breadcrumb">
       <ol tw="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8 overflow-scroll">
         <li tw="flex">
           <div tw="flex items-center">
             <Link href="/" passHref>
-              <a tw="text-gray-400 hover:text-gray-500">
+              <a tw="text-gray-400 hover:text-gray-500 dark:text-white hover:dark:text-gray-200">
                 <Home />
                 <span tw="sr-only">Home</span>
               </a>
@@ -31,7 +31,13 @@ const Breadcrumbs = ({ breadcrumbs }: Props) => {
               <div tw="flex items-center">
                 <Right />
                 <Link href={link} passHref>
-                  <a tw="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 truncate">{title}</a>
+                  <a
+                    tw="ml-4 text-sm font-medium truncate
+                  text-gray-500 hover:text-gray-700
+                  dark:text-white hover:dark:text-gray-200"
+                  >
+                    {title}
+                  </a>
                 </Link>
               </div>
             </li>

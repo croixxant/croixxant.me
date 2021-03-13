@@ -6,10 +6,10 @@ import { ChevronLeft, ChevronRight } from './svg'
 const numOfDisplayableButtons = 7
 
 const disableStyle = css`
-  ${tw`bg-gray-300 pointer-events-none`}
+  ${tw`bg-gray-300 dark:bg-gray-500 dark:text-black pointer-events-none`}
 `
 const currentStyle = css`
-  ${tw`bg-gray-100 pointer-events-none`}
+  ${tw`text-orange dark:text-orange font-bold pointer-events-none`}
 `
 
 const genPageNums = (current: number, maxNumOfPages: number) => {
@@ -51,12 +51,14 @@ const Pagination = ({ all, limit, current, router }: Props) => {
   const pageNums = genPageNums(current, maxNumOfPages)
 
   return (
-    <div tw="bg-white flex items-center justify-between max-w-screen-xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
+    <div tw="flex items-center justify-between max-w-screen-xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
       <div tw="flex-1 flex justify-between sm:hidden">
         <Link href={genURL(router, current - 1)} passHref>
           <a
             css={[
-              tw`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500`,
+              tw`relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border
+              border-gray-300 text-gray-700 hover:text-gray-500
+              dark:border-gray-500 dark:text-white hover:dark:text-gray-300`,
               current === 1 && disableStyle,
             ]}
           >
@@ -66,7 +68,9 @@ const Pagination = ({ all, limit, current, router }: Props) => {
         <Link href={genURL(router, current + 1)} passHref>
           <a
             css={[
-              tw`ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500`,
+              tw`ml-3 relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border
+              border-gray-300 text-gray-700 hover:text-gray-500
+              dark:border-gray-500 dark:text-white hover:dark:text-gray-300`,
               current === maxNumOfPages && disableStyle,
             ]}
           >
@@ -76,7 +80,7 @@ const Pagination = ({ all, limit, current, router }: Props) => {
       </div>
       <div tw="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div>
-          <p tw="text-sm text-gray-700">
+          <p tw="text-sm text-gray-700 dark:text-white">
             Showing
             <span tw="font-medium"> {from} </span>
             to
@@ -91,7 +95,9 @@ const Pagination = ({ all, limit, current, router }: Props) => {
             <Link href={genURL(router, current - 1)} passHref>
               <a
                 css={[
-                  tw`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50`,
+                  tw`relative inline-flex items-center px-2 py-2 rounded-l-md text-sm font-medium border
+                  border-gray-300 text-gray-500 hover:bg-gray-50
+                  dark:border-gray-500  dark:text-white hover:dark:bg-gray-700`,
                   current === 1 && disableStyle,
                 ]}
               >
@@ -104,7 +110,9 @@ const Pagination = ({ all, limit, current, router }: Props) => {
                 <Link key={idx} href={genURL(router, num)} passHref>
                   <a
                     css={[
-                      tw`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium bg-white text-gray-700 hover:bg-gray-50`,
+                      tw`relative inline-flex items-center px-4 py-2 text-sm font-medium border
+                      border-gray-300 text-gray-700 hover:bg-gray-50
+                      dark:border-gray-500 dark:text-white hover:dark:bg-gray-700`,
                       current === num && currentStyle,
                     ]}
                   >
@@ -116,7 +124,9 @@ const Pagination = ({ all, limit, current, router }: Props) => {
             <Link href={genURL(router, current + 1)} passHref>
               <a
                 css={[
-                  tw`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50`,
+                  tw`relative inline-flex items-center px-2 py-2 rounded-r-md text-sm font-medium border
+                  border-gray-300 text-gray-500 hover:bg-gray-50
+                  dark:border-gray-500 dark:text-white hover:dark:bg-gray-700`,
                   current === maxNumOfPages && disableStyle,
                 ]}
               >
