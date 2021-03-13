@@ -11,7 +11,7 @@ type Props = {
 
 const ContentsList = ({ contents, context }: Props) => {
   return (
-    <section tw="text-gray-600 dark:text-white overflow-hidden max-w-screen-xl mx-auto">
+    <div tw="text-gray-600 dark:text-white overflow-hidden max-w-screen-xl mx-auto">
       <div tw="w-full px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div tw="-my-8 divide-y-2 divide-gray-200 dark:divide-gray-600">
           {contents.map((c, cidx) => {
@@ -39,7 +39,7 @@ const ContentsList = ({ contents, context }: Props) => {
           })}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

@@ -32,7 +32,9 @@ const Page = (_: Props) => {
       <Head title="Articles" />
       <Layout>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <ContentsList contents={result} context="articles" />
+        <main>
+          <ContentsList contents={result} context="articles" />
+        </main>
         <Pagination all={contentsLen} limit={limit} current={currentPage} />
       </Layout>
     </>

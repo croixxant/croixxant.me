@@ -26,7 +26,9 @@ const Page = ({ uuid, title, contents, tags, createdAt, description }: Props) =>
       <Head title={title} />
       <Layout>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <ContentsDetail context="scraps" title={title} contents={contents} tags={tags} createdAt={createdAt} description={description} />
+        <article>
+          <ContentsDetail context="scraps" title={title} contents={contents} tags={tags} createdAt={createdAt} description={description} />
+        </article>
       </Layout>
     </>
   )
