@@ -35,7 +35,7 @@ export const Home = () => {
 }
 
 export const Right = () => {
-  return <RightSVG tw="flex-shrink-0 w-6 h-full text-gray-200 dark:text-gray-600" />
+  return <RightSVG tw="flex-shrink-0 w-6 h-full text-gray-200 dark:text-gray-600 invisible" />
 }
 
 export const ChevronRight = () => {
