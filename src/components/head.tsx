@@ -19,8 +19,7 @@ const H = (props: Props) => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
-      <link rel="icon" type="image/png" href={`${defaultHostname}/icons/16x16.png`} sizes="16x16" />
-      <link rel="icon" type="image/png" href={`${defaultHostname}/icons/32x32.png`} sizes="32x32" />
+      <link rel="icon" type="image/png" href={`${defaultHostname}/icons/72x72.png`} />
       <meta name="theme-color" content="#FA742B" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
