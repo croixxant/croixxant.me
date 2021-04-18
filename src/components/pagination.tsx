@@ -1,16 +1,8 @@
 import Link from 'next/link'
 import { withRouter, NextRouter } from 'next/router'
-import tw, { css } from 'twin.macro'
 import { ChevronLeft, ChevronRight } from './svg'
 
 const numOfDisplayableButtons = 7
-
-const disableStyle = css`
-  ${tw`text-gray-300 dark:text-gray-400 pointer-events-none`}
-`
-const currentStyle = css`
-  ${tw`font-bold pointer-events-none`}
-`
 
 const genPageNums = (current: number, maxNumOfPages: number) => {
   const all = Array(maxNumOfPages).fill(0)
@@ -51,57 +43,57 @@ const Pagination = ({ all, limit, current, router }: Props) => {
   const pageNums = genPageNums(current, maxNumOfPages)
 
   return (
-    <div tw="flex items-center justify-between max-w-screen-xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
-      <div tw="flex-1 flex justify-between sm:hidden">
+    <div className="flex items-center justify-between max-w-screen-xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
+      <div className="flex-1 flex justify-between sm:hidden">
         <Link href={genURL(router, current - 1)} passHref>
           <a
-            css={[
-              tw`relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border
-              border-gray-300 text-gray-700 hover:text-gray-500
-              dark:border-gray-500 dark:text-white hover:dark:text-gray-300`,
-              current === 1 && disableStyle,
-            ]}
+            className={`relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border
+              border-gray-300 dark:border-gray-500 ${
+                current === 1
+                  ? 'text-gray-300 dark:text-gray-400 pointer-events-none'
+                  : 'text-gray-700 hover:text-gray-500 dark:text-white dark:hover:text-gray-300'
+              }`}
           >
             Previous
           </a>
         </Link>
         <Link href={genURL(router, current + 1)} passHref>
           <a
-            css={[
-              tw`ml-3 relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border
-              border-gray-300 text-gray-700 hover:text-gray-500
-              dark:border-gray-500 dark:text-white hover:dark:text-gray-300`,
-              current === maxNumOfPages && disableStyle,
-            ]}
+            className={`ml-3 relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border
+              border-gray-300 dark:border-gray-500 ${
+                current === maxNumOfPages
+                  ? 'text-gray-300 dark:text-gray-400 pointer-events-none'
+                  : 'text-gray-700 hover:text-gray-500 dark:text-white dark:hover:text-gray-300'
+              }`}
           >
             Next
           </a>
         </Link>
       </div>
-      <div tw="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+      <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div>
-          <p tw="text-sm text-gray-700 dark:text-white">
+          <p className="text-sm text-gray-700 dark:text-white">
             Showing
-            <span tw="font-medium"> {from} </span>
+            <span className="font-medium"> {from} </span>
             to
-            <span tw="font-medium"> {to} </span>
+            <span className="font-medium"> {to} </span>
             of
-            <span tw="font-medium"> {all} </span>
+            <span className="font-medium"> {all} </span>
             results
           </p>
         </div>
         <div>
-          <nav tw="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+          <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
             <Link href={genURL(router, current - 1)} passHref>
               <a
-                css={[
-                  tw`relative inline-flex items-center px-2 py-2 rounded-l-md text-sm font-medium border
-                  border-gray-300 text-gray-500 hover:bg-gray-50
-                  dark:border-gray-500  dark:text-white hover:dark:bg-gray-700`,
-                  current === 1 && disableStyle,
-                ]}
+                className={`relative inline-flex items-center px-2 py-2 rounded-l-md text-sm font-medium border
+                  border-gray-300 dark:border-gray-500 ${
+                    current === 1
+                      ? 'text-gray-300 dark:text-gray-400 pointer-events-none'
+                      : 'text-gray-500 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-700'
+                  }`}
               >
-                <span tw="sr-only">Previous</span>
+                <span className="sr-only">Previous</span>
                 <ChevronLeft />
               </a>
             </Link>
@@ -109,12 +101,11 @@ const Pagination = ({ all, limit, current, router }: Props) => {
               return (
                 <Link key={idx} href={genURL(router, num)} passHref>
                   <a
-                    css={[
-                      tw`relative inline-flex items-center px-4 py-2 text-sm font-medium border
+                    className={`relative inline-flex items-center px-4 py-2 text-sm font-medium border
                       border-gray-300 text-gray-700 hover:bg-gray-50
-                      dark:border-gray-500 dark:text-white hover:dark:bg-gray-700`,
-                      current === num && currentStyle,
-                    ]}
+                      dark:border-gray-500 dark:text-white dark:hover:bg-gray-700 ${
+                        current === num ? 'font-bold pointer-events-none' : ''
+                      }`}
                   >
                     {num}
                   </a>
@@ -123,14 +114,14 @@ const Pagination = ({ all, limit, current, router }: Props) => {
             })}
             <Link href={genURL(router, current + 1)} passHref>
               <a
-                css={[
-                  tw`relative inline-flex items-center px-2 py-2 rounded-r-md text-sm font-medium border
-                  border-gray-300 text-gray-500 hover:bg-gray-50
-                  dark:border-gray-500 dark:text-white hover:dark:bg-gray-700`,
-                  current === maxNumOfPages && disableStyle,
-                ]}
+                className={`relative inline-flex items-center px-2 py-2 rounded-r-md text-sm font-medium border
+                  border-gray-300 dark:border-gray-500 ${
+                    current === maxNumOfPages
+                      ? 'text-gray-300 dark:text-gray-400 pointer-events-none'
+                      : 'text-gray-500 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-700'
+                  }`}
               >
-                <span tw="sr-only">Next</span>
+                <span className="sr-only">Next</span>
                 <ChevronRight />
               </a>
             </Link>

@@ -1,5 +1,4 @@
 import processor from '../../utils/md-processor'
-import tw from 'twin.macro'
 import Head from '../../components/head'
 import Layout from '../../components/layout'
 import ContentsDetail from '../../components/contentsDetail'

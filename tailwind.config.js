@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         orange: '#FA742B',
+        twitter: '#1DA1F2',
       },
       typography: (theme) => ({
         dark: {
