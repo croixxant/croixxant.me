@@ -1,5 +1,5 @@
 // .babelrc.js
 module.exports = {
-  presets: [['next/babel']],
+  presets: ['next/babel'],
   plugins: ['inline-react-svg'],
 }
