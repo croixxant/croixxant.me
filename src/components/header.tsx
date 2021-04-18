@@ -86,94 +86,93 @@ const Header = () => {
 
       <Transition
         show={isOpen}
-        enter={css(tw`transition duration-200 ease-out`)}
+        enter={css(tw`duration-200 ease-out`)}
         enterFrom={css(tw`opacity-0 scale-95`)}
         enterTo={css(tw`opacity-100 scale-100`)}
-        leave={css(tw`transition duration-100 ease-in`)}
+        leave={css(tw`duration-100 ease-in`)}
         leaveFrom={css(tw`opacity-100 scale-100`)}
         leaveTo={css(tw`opacity-0 scale-95`)}
+        className={css(tw`absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden`)}
       >
-        <div tw="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-          <div
-            tw="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2
+        <div
+          tw="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2
           bg-white divide-gray-50
           dark:bg-gray-800 dark:divide-gray-700"
-          >
-            <div tw="pt-5 pb-6 px-5">
-              <div tw="flex items-center justify-between">
-                <div tw="flex justify-start lg:w-0 lg:flex-1">
-                  <Link href="/" passHref>
-                    <a>
-                      <span
-                        tw="text-lg font-bold
+        >
+          <div tw="pt-5 pb-6 px-5">
+            <div tw="flex items-center justify-between">
+              <div tw="flex justify-start lg:w-0 lg:flex-1">
+                <Link href="/" passHref>
+                  <a>
+                    <span
+                      tw="text-lg font-bold
                       text-gray-600 hover:text-gray-900
                       dark:text-white hover:dark:text-gray-200"
-                      >
-                        Croixxant.me
-                      </span>
-                    </a>
-                  </Link>
-                </div>
-                <div tw="-mr-2 flex space-x-2">
-                  <ThemeChanger />
-                  <button
-                    type="button"
-                    tw="rounded-md p-2 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange
+                    >
+                      Croixxant.me
+                    </span>
+                  </a>
+                </Link>
+              </div>
+              <div tw="-mr-2 flex space-x-2">
+                <ThemeChanger />
+                <button
+                  type="button"
+                  tw="rounded-md p-2 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange
                     bg-white text-gray-400 hover:bg-gray-100
                     dark:bg-gray-800 dark:text-white hover:dark:bg-gray-700"
-                    onClick={() => setIsOpen(!isOpen)}
-                  >
-                    <span tw="sr-only">Close menu</span>
-                    <X />
-                  </button>
-                </div>
-              </div>
-              <div tw="mt-6">
-                <div tw="grid gap-2 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
-                  <Link href="/articles" passHref>
-                    <a
-                      tw="w-full flex px-4 py-2 text-base font-medium rounded-md
-                    text-gray-900 hover:bg-gray-50
-                    dark:text-white hover:dark:bg-gray-700"
-                    >
-                      Articles
-                    </a>
-                  </Link>
-                  <Link href="/scraps" passHref>
-                    <a
-                      tw="w-full flex px-4 py-2 text-base font-medium rounded-md
-                    text-gray-900 hover:bg-gray-50
-                    dark:text-white hover:dark:bg-gray-700"
-                    >
-                      Scraps
-                    </a>
-                  </Link>
-                </div>
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  <span tw="sr-only">Close menu</span>
+                  <X />
+                </button>
               </div>
             </div>
-            <div tw="py-4 px-5">
-              <div tw="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a
-                  tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium
-                  text-white bg-black hover:text-gray-200"
-                  href="https://github.com/croixxant"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GitHub height={20} width={20} />
-                  <span tw="ml-1">GitHub</span>
-                </a>
-                <a
-                  tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium
-                  text-white background-color[#1DA1F2] hover:text-gray-200"
-                  href="https://twitter.com/croixxxant"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter height={20} width={20} />
-                  <span tw="ml-2">Twitter</span>
-                </a>
+            <div tw="mt-6">
+              <div tw="grid gap-2 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
+                <Link href="/articles" passHref>
+                  <a
+                    tw="w-full flex px-4 py-2 text-base font-medium rounded-md
+                    text-gray-900 hover:bg-gray-50
+                    dark:text-white hover:dark:bg-gray-700"
+                  >
+                    Articles
+                  </a>
+                </Link>
+                <Link href="/scraps" passHref>
+                  <a
+                    tw="w-full flex px-4 py-2 text-base font-medium rounded-md
+                    text-gray-900 hover:bg-gray-50
+                    dark:text-white hover:dark:bg-gray-700"
+                  >
+                    Scraps
+                  </a>
+                </Link>
               </div>
+            </div>
+          </div>
+          <div tw="py-4 px-5">
+            <div tw="grid grid-cols-2 gap-y-4 gap-x-8">
+              <a
+                tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium
+                  text-white bg-black hover:text-gray-200"
+                href="https://github.com/croixxant"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GitHub height={20} width={20} />
+                <span tw="ml-1">GitHub</span>
+              </a>
+              <a
+                tw="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium
+                  text-white background-color[#1DA1F2] hover:text-gray-200"
+                href="https://twitter.com/croixxxant"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter height={20} width={20} />
+                <span tw="ml-2">Twitter</span>
+              </a>
             </div>
           </div>
         </div>
