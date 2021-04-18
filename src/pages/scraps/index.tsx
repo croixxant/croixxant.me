@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import tw from 'twin.macro'
 import Head from '../../components/head'
 import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'

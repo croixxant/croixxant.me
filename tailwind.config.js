@@ -1,9 +1,12 @@
 module.exports = {
   darkMode: 'class',
+  mode: 'jit',
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
         orange: '#FA742B',
+        twitter: '#1DA1F2',
       },
       typography: (theme) => ({
         dark: {
