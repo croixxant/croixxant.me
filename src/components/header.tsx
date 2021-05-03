@@ -46,13 +46,13 @@ const Header = () => {
                 Articles
               </a>
             </Link>
-            <Link href="/scraps" passHref>
+            <Link href="/notes" passHref>
               <a
                 className="text-base font-medium
               text-gray-500 hover:text-gray-900
               dark:text-white  dark:hover:text-gray-200"
               >
-                Scraps
+                Notes
               </a>
             </Link>
           </nav>
@@ -137,13 +137,13 @@ const Header = () => {
                     Articles
                   </a>
                 </Link>
-                <Link href="/scraps" passHref>
+                <Link href="/notes" passHref>
                   <a
                     className="w-full flex px-4 py-2 text-base font-medium rounded-md
                     text-gray-900 hover:bg-gray-50
                     dark:text-white dark:hover:bg-gray-700"
                   >
-                    Scraps
+                    Notes
                   </a>
                 </Link>
               </div>

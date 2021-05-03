@@ -4,7 +4,7 @@ import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
 import ContentsList from '../../components/contentsList'
 import Pagination from '../../components/pagination'
-import data from '../../../contents/scraps/index.json'
+import data from '../../../contents/notes/index.json'
 import Error from 'next/error'
 import type { Summary } from '../../types/contents'
 
@@ -20,7 +20,7 @@ const Page = (_: Props) => {
   const filtered = filter(data, tag)
   const contentsLen = filtered.length
   const result = paginate(filtered, currentPage)
-  const breadcrumbs = [{ title: 'Scraps', link: '/scraps' }]
+  const breadcrumbs = [{ title: 'Notes', link: '/notes' }]
 
   if (result.length === 0) {
     return <Error statusCode={404} />
@@ -28,11 +28,11 @@ const Page = (_: Props) => {
 
   return (
     <>
-      <Head title="Scraps" />
+      <Head title="Notes" />
       <Layout>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
         <main>
-          <ContentsList contents={result} context="scraps" />
+          <ContentsList contents={result} context="notes" />
         </main>
         <Pagination all={contentsLen} limit={limit} current={currentPage} />
       </Layout>

@@ -5,7 +5,7 @@ import matter from 'gray-matter'
 
 const dirname = path.dirname(new URL(import.meta.url).pathname)
 const articlesRoot = path.join(dirname, '../contents/articles')
-const scrapsRoot = path.join(dirname, '../contents/scraps')
+const notesRoot = path.join(dirname, '../contents/notes')
 
 function createContentsMap(dirpath) {
   const entries = glob
@@ -33,7 +33,7 @@ function createContentsMap(dirpath) {
 }
 
 function main() {
-  ;[articlesRoot, scrapsRoot].map(createContentsMap).map(({ dirpath, entries }) => {
+  ;[articlesRoot, notesRoot].map(createContentsMap).map(({ dirpath, entries }) => {
     fs.writeFileSync(`${dirpath}/index.json`, JSON.stringify(entries))
   })
 }

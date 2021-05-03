@@ -17,8 +17,8 @@ type Props = {
 
 const Page = ({ uuid, title, contents, tags, createdAt, description }: Props) => {
   const breadcrumbs = [
-    { title: 'Scraps', link: '/scraps' },
-    { title: title, link: `/scraps/${uuid}` },
+    { title: 'Notes', link: '/notes' },
+    { title: title, link: `/notes/${uuid}` },
   ]
   return (
     <>
@@ -26,7 +26,7 @@ const Page = ({ uuid, title, contents, tags, createdAt, description }: Props) =>
       <Layout>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
         <article>
-          <ContentsDetail context="scraps" title={title} contents={contents} tags={tags} createdAt={createdAt} description={description} />
+          <ContentsDetail context="notes" title={title} contents={contents} tags={tags} createdAt={createdAt} description={description} />
         </article>
       </Layout>
     </>
@@ -43,7 +43,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<Params>) 
     }
   }
 
-  const { default: article } = await import(`../../../contents/scraps/${params.uuid}.md`)
+  const { default: article } = await import(`../../../contents/notes/${params.uuid}.md`)
   const {
     contents,
     data: { frontmatter },
@@ -68,9 +68,9 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<Params>) 
 }
 
 export async function getStaticPaths() {
-  const { default: scraps } = await import(`../../../contents/scraps/index.json`)
-  const paths = scraps.map(({ uuid }: Summary) => {
-    return `/scraps/${uuid}`
+  const { default: notes } = await import(`../../../contents/notes/index.json`)
+  const paths = notes.map(({ uuid }: Summary) => {
+    return `/notes/${uuid}`
   })
   return {
     paths,

@@ -27,11 +27,11 @@ export default function Home() {
                     </Link>
                   </li>
                   <li className="col-span-1 flex shadow-sm rounded-md bg-gradient-to-r from-green-500 to-green-400 md:h-16">
-                    <Link href="/scraps" passHref>
+                    <Link href="/notes" passHref>
                       <a className="flex-1 flex justify-between items-center text-gray-100 font-medium hover:text-gray-300">
                         <div className="px-4 py-2 truncate inline-flex">
                           <Trash />
-                          <span className="ml-2">Scraps</span>
+                          <span className="ml-2">Notes</span>
                         </div>
                         <div className="mr-4">
                           <ChevronRight />
