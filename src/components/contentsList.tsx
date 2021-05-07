@@ -1,4 +1,4 @@
-import { format } from '../utils/date'
+import { format } from '../lib/date'
 import Link from 'next/link'
 import Tag from './tag'
 import type { Summary } from '../types/contents'

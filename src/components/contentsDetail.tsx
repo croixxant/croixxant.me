@@ -1,4 +1,4 @@
-import { format } from '../utils/date'
+import { format } from '../lib/date'
 import { Clock } from './svg'
 import Tag from './tag'
 

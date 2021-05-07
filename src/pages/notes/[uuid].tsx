@@ -1,4 +1,4 @@
-import processor from '../../utils/md-processor'
+import processor from '../../lib/md-processor'
 import Head from '../../components/head'
 import Layout from '../../components/layout'
 import ContentsDetail from '../../components/contentsDetail'

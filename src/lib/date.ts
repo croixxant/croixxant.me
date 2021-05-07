@@ -1,4 +1,4 @@
-export const format = (date: Date) => {
+export const format = (date: Date): string => {
   return 'yyyy-MM-dd HH:mm'
     .replace(/yyyy/g, date.getFullYear().toString())
     .replace(/MM/g, ('0' + (date.getMonth() + 1)).slice(-2))
