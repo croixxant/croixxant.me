@@ -1,4 +1,4 @@
-import visit from 'unist-util-visit'
+import { visit } from 'unist-util-visit'
 import { parse } from 'yaml'
 
 export default (_opts = { type: 'yaml', storeName: 'frontmatter' }) => {

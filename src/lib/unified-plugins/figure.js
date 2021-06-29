@@ -1,5 +1,5 @@
-import visit from 'unist-util-visit-parents'
-import h from 'hastscript'
+import { visitParents } from 'unist-util-visit-parents'
+import { h } from 'hastscript'
 
 export default (_opts) => {
   const img2figure = (node) => {
@@ -12,7 +12,7 @@ export default (_opts) => {
   }
 
   return (tree, file) => {
-    visit(tree, { tagName: 'img' }, (node, ancestors) => {
+    visitParents(tree, { tagName: 'img' }, (node, ancestors) => {
       const idx = ancestors[ancestors.length - 1].children.indexOf(node)
       ancestors[ancestors.length - 1].children.splice(idx, 1, img2figure(node))
       console.log(idx)
