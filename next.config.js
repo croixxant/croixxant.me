@@ -10,7 +10,7 @@ module.exports = withPWA({
 
     // Fixes packages that depend on fs/module module
     if (!isServer) {
-      config.node = { fs: 'empty', module: 'empty' }
+      config.resolve.fallback.fs = false
     }
 
     return config
@@ -22,5 +22,8 @@ module.exports = withPWA({
     dest: 'public',
     disable: process.env.NODE_ENV === 'development',
     runtimeCaching: [...runtimeCaching],
+  },
+  future: {
+    webpack5: true,
   },
 })
