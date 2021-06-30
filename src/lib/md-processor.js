@@ -7,6 +7,7 @@ import gfm from 'remark-gfm'
 import slug from 'remark-slug'
 import remark2rehype from 'remark-rehype'
 import highlight from '@mapbox/rehype-prism'
+import prismText from './unified-plugins/prism-text'
 import stringify from 'rehype-stringify'
 
 export default unified()
@@ -18,4 +19,5 @@ export default unified()
   .use(remark2rehype)
   .use(img2figure)
   .use(highlight)
+  .use(prismText)
   .use(stringify)

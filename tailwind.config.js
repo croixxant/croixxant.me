@@ -25,6 +25,9 @@ module.exports = {
         },
         DEFAULT: {
           css: {
+            'p > code::before, p > code::after': {
+              content: 'none',
+            },
             'ul[class="contains-task-list"] > li::before': {
               content: 'none',
             },
