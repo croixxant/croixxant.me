@@ -17,8 +17,10 @@ module.exports = (options) => {
       return
     }
 
-    parent.properties.className = (parent.properties.className || []).concat('language-text')
-    node.properties.className = (parent.properties.className || []).concat('language-text')
+    if (parent.tagName === 'pre') {
+      parent.properties.className = (parent.properties.className || []).concat('language-text')
+    }
+    node.properties.className = (node.properties.className || []).concat('language-text')
   }
 }
 
