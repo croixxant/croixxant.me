@@ -1,15 +1,17 @@
-import processor from '../../lib/md-processor'
 import Head from '../../components/head'
 import Layout from '../../components/layout'
 import ContentsDetail from '../../components/contentsDetail'
 import Breadcrumbs from '../../components/breadcrumbs'
-import type { File, Summary } from '../../types/contents'
+import matter from 'gray-matter'
+import { serialize } from '../../lib/mdx-serializer'
+import type { Summary } from '../../types/contents'
 import type { GetStaticPropsContext } from 'next'
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 type Props = {
   uuid: string
   title: string
-  contents: string
+  contents: MDXRemoteSerializeResult
   tags: string[]
   createdAt: string
   description: string
@@ -51,26 +53,23 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<Params>) 
     }
   }
 
-  const { default: article } = await import(`../../../contents/articles/${params.uuid}.md`)
-  const {
-    contents,
-    data: { frontmatter },
-  } = processor.processSync(article) as File
-
-  if (!frontmatter || !contents) {
+  const { default: article } = await import(`../../../contents/articles/${params.uuid}.mdx`)
+  const { data, content } = matter(article)
+  if (!data || !content) {
     return {
       notFound: true,
     }
   }
 
+  const mdxSource = await serialize(content)
   return {
     props: {
-      uuid: frontmatter.uuid,
-      title: frontmatter.title,
-      contents: contents,
-      tags: frontmatter.tags || [],
-      createdAt: frontmatter.createdAt || '',
-      description: frontmatter.description || '',
+      uuid: data.uuid,
+      title: data.title,
+      contents: mdxSource,
+      tags: data.tags || [],
+      createdAt: data.createdAt || '',
+      description: data.description || '',
     },
   }
 }

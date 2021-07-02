@@ -4,10 +4,13 @@ module.exports = (options) => {
   options = options || {}
 
   return (tree) => {
-    visit(tree, { tagName: 'code' }, visitor)
+    visit(tree, { type: 'element' }, visitor)
   }
 
   function visitor(node, index, parent) {
+    if (!['code', 'inlineCode'].includes(node.tagName)) {
+      return
+    }
     if (!parent || !['pre', 'p'].includes(parent.tagName)) {
       return
     }
