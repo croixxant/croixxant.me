@@ -7,7 +7,7 @@ module.exports = withPWA(
   withTM({
     webpack: (config, { isServer }) => {
       config.module.rules.push({
-        test: /\.md$/,
+        test: /\.mdx?$/,
         use: 'raw-loader',
       })
 

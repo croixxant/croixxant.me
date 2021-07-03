@@ -1,11 +1,14 @@
 import { format } from '../lib/date'
 import { Clock } from './svg'
 import Tag from './tag'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+
+const components = {}
 
 type Props = {
   context: string
   title: string
-  contents: string
+  contents: MDXRemoteSerializeResult
   tags: string[]
   createdAt: string
   description: string
@@ -76,10 +79,9 @@ const ContentsDetail = ({ context, title, contents, tags, createdAt, description
           </h1>
           {!!description && <p className="text-gray-500 dark:text-white mt-8 text-xl leading-8">{description}</p>}
         </div>
-        <div
-          className="mt-6 text-gray-500 prose prose-indigo dark:prose-dark lg:prose-lg mx-auto"
-          dangerouslySetInnerHTML={{ __html: contents }}
-        ></div>
+        <div className="mt-6 text-gray-500 prose prose-indigo dark:prose-dark lg:prose-lg mx-auto">
+          <MDXRemote {...contents} components={components} />
+        </div>
       </div>
     </div>
   )

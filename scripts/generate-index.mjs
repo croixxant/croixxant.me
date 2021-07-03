@@ -9,7 +9,7 @@ const notesRoot = path.join(dirname, '../contents/notes')
 
 function createContentsMap(dirpath) {
   const entries = glob
-    .sync(`${dirpath}/*.md`)
+    .sync(`${dirpath}/*.mdx`)
     .map((filepath) => {
       const { data } = matter.read(filepath)
       return { ...data }
