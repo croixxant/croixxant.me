@@ -1,7 +1,7 @@
 import { visitParents } from 'unist-util-visit-parents'
 import { h } from 'hastscript'
 
-export default (_opts) => {
+module.exports = (_opts) => {
   const img2figure = (node) => {
     const props = node.properties
     const img = h('img', props)
